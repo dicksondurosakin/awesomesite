@@ -71,7 +71,7 @@ TEMPLATES = [
 ]
 
 # Email Backend
-EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+EMAIL_BACKEND = "sgbackend.SendGridBackend"
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = os.environ["SENDGRID_KEY"]
