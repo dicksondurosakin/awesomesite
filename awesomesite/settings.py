@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-==f#+rih2=&y4_oir!p$v=1ux6v2@_6^vq(bo-tabdr^ry&(^v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ddon375.pythonanywhere.com','127.0.0.1']
 SITE_ID = 1
 
 # Application definition
@@ -82,11 +82,11 @@ TEMPLATES = [
 EMAIL_BACKEND = "sgbackend.SendGridBackend"
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = os.environ["SENDGRID_KEY"]
+EMAIL_HOST_PASSWORD = os.getenv("SENDGRID_KEY")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'durosakindickson@gmail.com'
-SENDGRID_API_KEY = os.environ["SENDGRID_KEY"]
+SENDGRID_API_KEY = os.getenv("SENDGRID_KEY")
 SENDGRID_SANDBOX_MODE_IN_DEBUG =False
 
 WSGI_APPLICATION = 'awesomesite.wsgi.application'
