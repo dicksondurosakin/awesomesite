@@ -38,12 +38,12 @@
             </li>
             <li>
               <a href="#about" id="about-link"
-                ><span class="icon solid fa-user">About Me</span></a
+                ><span class="icon solid fa-user">About me</span></a
               >
             </li>
             <li>
-              <a href="#contact" id="contact-link"
-                ><span class="icon solid fa-envelope">Contact</span></a
+              <a href="{% url 'blog:post_list'  %}" id="contact-link"
+                ><span class="icon solid fa-envelope">My blog</span></a
               >
             </li>
           </ul>
@@ -205,7 +205,7 @@
             free to send me a message here
           </p>
 
-          <form method="post" action="{% url 'index' %}">
+          <form method="post" action="{% url 'portfolio:index_page' %}">
             {% csrf_token %}
             <div class="row">
               <div class="col-6 col-12-mobile">
