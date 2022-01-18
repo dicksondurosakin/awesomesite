@@ -19,6 +19,7 @@ from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import PostSitemap
 from django.conf.urls.static import static
 from django.conf import settings
+from awesomesite.settings import MEDIA_ROOT
 
 sitemaps = {
  'posts': PostSitemap,
@@ -27,6 +28,11 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/',include('blog.urls',namespace='blog')),
+    path('account/',include('account.urls',namespace='account')),
     path('',include('portfolio.urls',namespace='portfolio')),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap')
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap'),
+    # social authentication
+    path('social-auth/',include('social_django.urls', namespace='social')),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=MEDIA_ROOT)
