@@ -101,9 +101,8 @@ def post_share(request,post_id):
 
             send_mail(
                 subject=f"{name} recommends you read {post.title}",
-                message=f"Read {post.title} at" \
+                html_message = f"Read {post.title} at <a href='{post_url}'>this link<a> <br><br>" \
                             f"{cd['name']}\'s comments: {cd['comments']}",
-                html_message = f"<a href='{post_url}'>this link<a> <br><br>",
                 from_email= settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[receiver,]
             )
