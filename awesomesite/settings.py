@@ -112,16 +112,14 @@ WSGI_APPLICATION = 'awesomesite.wsgi.application'
 #     }
 # }
 
-################## DATABASE ON AWS #######################
+################## DATABASE ON Python Anywhere MySQL #######################
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ddon375$awesomesite',
         'USER': 'ddon375',
-        'PASSWORD': 'surulere0101',
-        'HOST': 'ddon375.mysql.pythonanywhere-services.com',
-        'TEST': {
-          'NAME': 'ddon375$awesomesite',}
+        'PASSWORD': os.getenv("PASSWORD"),
+        'HOST': os.getenv('HOST'),
         
     }
 }
