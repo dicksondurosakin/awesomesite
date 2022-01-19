@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import secret
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -92,11 +93,10 @@ TEMPLATES = [
 EMAIL_BACKEND = "sgbackend.SendGridBackend"
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = os.getenv("SENDGRID_KEY")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'durosakindickson@gmail.com'
-SENDGRID_API_KEY = os.getenv("SENDGRID_KEY")
+SENDGRID_API_KEY = secret.sendgrid_key
 SENDGRID_SANDBOX_MODE_IN_DEBUG =False
 
 WSGI_APPLICATION = 'awesomesite.wsgi.application'
@@ -116,11 +116,13 @@ WSGI_APPLICATION = 'awesomesite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        },
         'NAME': 'ddon375$awesomesite',
         'USER': 'ddon375',
-        'PASSWORD': os.getenv("PASSWORD"),
-        'HOST': os.getenv('HOST'),
-        
+        'PASSWORD': secret.password,
+        'HOST': secret.host,
     }
 }
 
