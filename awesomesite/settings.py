@@ -105,24 +105,26 @@ WSGI_APPLICATION = 'awesomesite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-################## DATABASE ON AWS #######################
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'devsearch',
-#         'USER': 'dickson',
-#         'PASSWORD': env("PASSWORD"),
-#         'HOST': env("HOST"),
-#         'PORT': '5432'
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+################## DATABASE ON AWS #######################
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ddon375$awesomesite',
+        'USER': 'ddon375',
+        'PASSWORD': 'surulere0101',
+        'HOST': 'ddon375.mysql.pythonanywhere-services.com',
+        'TEST': {
+          'NAME': 'ddon375$awesomesite',}
+        
+    }
+}
 
 
 # Password validation
