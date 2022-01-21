@@ -18,9 +18,9 @@ import secret
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 #Authentication URLs
-LOGIN_REDIRECT_URL = 'account:dashboard'
-LOGIN_URL = 'account:login'
-LOGOUT_URL = 'account:logout'
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 AUTHENTICATION_BACKENDS = ['social_core.backends.facebook.FacebookOAuth2',]
 SOCIAL_AUTH_FACEBOOK_KEY = secret.facebook_key
 SOCIAL_AUTH_FACEBOOK_SECRET = secret.facebook_secret
