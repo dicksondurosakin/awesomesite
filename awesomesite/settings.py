@@ -18,9 +18,12 @@ import secret
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 #Authentication URLs
-LOGIN_REDIRECT_URL = 'dashboard'
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'account:dashboard'
+LOGIN_URL = 'account:login'
+LOGOUT_URL = 'account:logout'
+PASSWORD_CHANGE_URL = 'account:password_change'
+PASSWORD_RESET_URL = 'account:password_reset'
+PASSWORD_RESET_DONE_URL = 'account:password_reset_done'
 AUTHENTICATION_BACKENDS = ['social_core.backends.facebook.FacebookOAuth2',]
 SOCIAL_AUTH_FACEBOOK_KEY = secret.facebook_key
 SOCIAL_AUTH_FACEBOOK_SECRET = secret.facebook_secret
@@ -109,26 +112,26 @@ WSGI_APPLICATION = 'awesomesite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-################## DATABASE ON Python Anywhere MySQL #######################
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'sql_mode': 'traditional',
-        },
-        'NAME': 'ddon375$awesomesite',
-        'USER': 'ddon375',
-        'PASSWORD': secret.password,
-        'HOST': secret.host,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+################## DATABASE ON Python Anywhere MySQL #######################
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'OPTIONS': {
+#             'sql_mode': 'traditional',
+#         },
+#         'NAME': 'ddon375$awesomesite',
+#         'USER': 'ddon375',
+#         'PASSWORD': secret.password,
+#         'HOST': secret.host,
+#     }
+# }
 
 
 # Password validation
