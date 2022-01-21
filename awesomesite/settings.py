@@ -21,6 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 LOGIN_REDIRECT_URL = 'account:dashboard'
 LOGIN_URL = 'account:login'
 LOGOUT_URL = 'account:logout'
+AUTHENTICATION_BACKENDS = ['social_core.backends.facebook.FacebookOAuth2',]
+SOCIAL_AUTH_FACEBOOK_KEY = secret.facebook_key
+SOCIAL_AUTH_FACEBOOK_SECRET = secret.facebook_secret
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
