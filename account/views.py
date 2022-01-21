@@ -24,7 +24,7 @@ def user_login(request):
                 else:
                     return HttpResponse('Disabled account')
             else:
-                return HttpResponse('Invalid Login')
+                messages.error(request, "Username or password Incorrect")
     else:
         form = LoginForm()
     return render(request,'account/login.html',{'form':form})
