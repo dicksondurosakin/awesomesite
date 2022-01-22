@@ -25,10 +25,10 @@ PASSWORD_CHANGE_URL = 'account:password_change'
 PASSWORD_RESET_URL = 'account:password_reset'
 PASSWORD_RESET_DONE_URL = 'account:password_reset_done'
 
-AUTHENTICATION_BACKENDS = (
-    ('django.contrib.auth.backends.ModelBackend'),
-    ('social_core.backends.facebook.FacebookOAuth2'),
-)
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+]
 SOCIAL_AUTH_FACEBOOK_KEY = secret.facebook_key
 SOCIAL_AUTH_FACEBOOK_SECRET = secret.facebook_secret
 
