@@ -19,7 +19,7 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect('dashboard')
+                    return redirect('account:dashboard')
                 else:
                     return HttpResponse('Disabled account')
             else:

@@ -37,6 +37,8 @@ urlpatterns = [
 
     # authentication url
     path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
+    path('reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_complete'),
+
 
 ]
 if settings.DEBUG:
