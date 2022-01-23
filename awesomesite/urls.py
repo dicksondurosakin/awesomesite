@@ -38,6 +38,7 @@ urlpatterns = [
     # authentication url
     path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
     path('reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_complete'),
+    path('password_change/done/',auth_views.PasswordChangeDoneView.as_view(),name='password_change_done'),
 
 
 ]
