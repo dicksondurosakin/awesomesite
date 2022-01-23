@@ -49,6 +49,8 @@ SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
+    # portfolio
+    'portfolio.apps.PortfolioConfig',
     'account.apps.AccountConfig',
 
     'django.contrib.admin',
@@ -57,9 +59,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # portfolio
-    'portfolio.apps.PortfolioConfig',
 
     # blog
     'blog.apps.BlogConfig',
