@@ -31,6 +31,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 SOCIAL_AUTH_FACEBOOK_KEY = secret.facebook_key
 SOCIAL_AUTH_FACEBOOK_SECRET = secret.facebook_secret
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
 
 # Quick-start development settings - unsuitable for production
