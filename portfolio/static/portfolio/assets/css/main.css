@@ -1338,6 +1338,12 @@ br.clear {
 }
 
 @media screen and (max-width: 960px) {
+  .hamburger div{
+    width: 25px;
+    height: 5px;
+    background-color: #222729;
+    margin: 5px 0;
+  }
   .row {
     display: flex;
     flex-wrap: wrap;

@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 import secret
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Build paths insid e the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 #Authentication URLs
@@ -28,10 +28,13 @@ PASSWORD_RESET_DONE_URL = 'account:password_reset_done'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
 ]
 SOCIAL_AUTH_FACEBOOK_KEY = secret.facebook_key
 SOCIAL_AUTH_FACEBOOK_SECRET = secret.facebook_secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_TWITTER_KEY = secret.twitter_client_id
+SOCIAL_AUTH_TWITTER_SECRET = secret.twitter_client_secret
 
 
 # Quick-start development settings - unsuitable for production
@@ -116,26 +119,26 @@ WSGI_APPLICATION = 'awesomesite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-################## DATABASE ON Python Anywhere MySQL #######################
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'sql_mode': 'traditional',
-        },
-        'NAME': 'ddon375$awesomesite',
-        'USER': 'ddon375',
-        'PASSWORD': secret.password,
-        'HOST': secret.host,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+################## DATABASE ON Python Anywhere MySQL #######################
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'OPTIONS': {
+#             'sql_mode': 'traditional',
+#         },
+#         'NAME': 'ddon375$awesomesite',
+#         'USER': 'ddon375',
+#         'PASSWORD': secret.password,
+#         'HOST': secret.host,
+#     }
+# }
 
 
 # Password validation
