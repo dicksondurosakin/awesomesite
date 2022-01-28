@@ -40,7 +40,8 @@ urlpatterns = [
     path('reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_complete'),
     path('password_change/done/',auth_views.PasswordChangeDoneView.as_view(),name='password_change_done'),
 
-
+    # images url
+    path('images/', include('images.urls', namespace='images')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root=MEDIA_ROOT)

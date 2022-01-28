@@ -27,6 +27,7 @@ PASSWORD_RESET_DONE_URL = 'account:password_reset_done'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.google.GoogleOAuth2',
 ]
@@ -74,6 +75,8 @@ INSTALLED_APPS = [
     # social website
     'social_django',
     # 'django_extensions',
+    # images app
+    'images.apps.ImagesConfig',
 
 ]
 
@@ -121,24 +124,10 @@ WSGI_APPLICATION = 'awesomesite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-################## DATABASE ON Python Anywhere MySQL #######################
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'sql_mode': 'traditional',
-        },
-        'NAME': 'ddon375$awesomesite',
-        'USER': 'ddon375',
-        'PASSWORD': secret.password,
-        'HOST': secret.host,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -188,3 +177,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+if os.getcwd() == '/app':
+    ################## DATABASE ON Python Anywhere MySQL #######################
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'OPTIONS': {
+                'sql_mode': 'traditional',
+            },
+            'NAME': 'ddon375$awesomesite',
+            'USER': 'ddon375',
+            'PASSWORD': secret.password,
+            'HOST': secret.host,
+        }
+    }
