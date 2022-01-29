@@ -24,7 +24,7 @@
          jQuery('#bookmarklet').remove();
       });
       // find images and display them
-      jQuery.each(jQuery('img[src$="jpg"]'), function(index, image) {
+      box_html.each(jQuery('img[src$="jpg"]'), function(index, image) {
         if (jQuery(image).width() >= min_width && jQuery(image).height()
         >= min_height)
         {
