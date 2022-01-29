@@ -4,6 +4,9 @@
     var static_url = site_url + 'static/';
     var min_width = 100;
     var min_height = 100;
+    // function bookmarklet(msg) {
+    //     alert("hi my name is Dickson")
+    // };
     function bookmarklet(msg) {
     // Here goes our bookmarklet code
     // load CSS
