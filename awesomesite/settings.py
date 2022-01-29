@@ -74,8 +74,8 @@ INSTALLED_APPS = [
 
     # social website
     'social_django',
-    'django_extensions',
-    
+    # 'django_extensions',
+
     # images app
     'images.apps.ImagesConfig',
 
