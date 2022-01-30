@@ -124,13 +124,6 @@ WSGI_APPLICATION = 'awesomesite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-if os.getcwd() == 'C:\Users\USER\Desktop\Dickson\awesomesite':
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
 
 
 # Password validation
@@ -191,5 +184,13 @@ if os.getcwd() == '/home/ddon375/awesomesite':
             'USER': 'ddon375',
             'PASSWORD': secret.password,
             'HOST': secret.host,
+        }
+    }
+else:
+    ############### DATABASE ON SQLITE 3 ###################
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
