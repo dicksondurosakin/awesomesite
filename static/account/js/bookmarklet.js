@@ -2,8 +2,8 @@
     var jquery_version = '3.4.1';
     var site_url = 'https://www.dicksondurosakin.com/';
     var static_url = site_url + 'static/';
-    var min_width = 100;
-    var min_height = 100;
+    var min_width = 50;
+    var min_height = 50;
   
     function bookmarklet(msg) {
       // load CSS
@@ -24,7 +24,7 @@
          jQuery('#bookmarklet').remove();
       });
       // find images and display them
-      box_html.each(jQuery('img[src$="jpg"]'), function(index, image) {
+      jQuery.each(jQuery('img[src$="jpg"]'), function(index, image) {
         if (jQuery(image).width() >= min_width && jQuery(image).height()
         >= min_height)
         {
