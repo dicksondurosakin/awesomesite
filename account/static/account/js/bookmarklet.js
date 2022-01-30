@@ -2,8 +2,8 @@
     var jquery_version = '3.4.1';
     var site_url = 'https://www.dicksondurosakin.com/';
     var static_url = site_url + 'static/';
-    var min_width = 50;
-    var min_height = 50;
+    var min_width = 10;
+    var min_height = 10;
   
     function bookmarklet(msg) {
       // load CSS
