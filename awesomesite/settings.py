@@ -186,11 +186,11 @@ if os.getcwd() == '/home/ddon375/awesomesite':
             'HOST': secret.host,
         }
     }
-else:
+# else:
     ############### DATABASE ON SQLITE 3 ###################
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.sqlite3',
+    #         'NAME': BASE_DIR / 'db.sqlite3',
+    #     }
+    # }
