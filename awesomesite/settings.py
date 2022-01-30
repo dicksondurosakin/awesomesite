@@ -124,13 +124,13 @@ WSGI_APPLICATION = 'awesomesite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.getcwd() == 'C:\Users\USER\Desktop\Dickson\awesomesite':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
 
 
 # Password validation
@@ -179,7 +179,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-if os.getcwd() == '/app':
+if os.getcwd() == '/home/ddon375/awesomesite':
     ################## DATABASE ON Python Anywhere MySQL #######################
     DATABASES = {
         'default': {
