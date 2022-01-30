@@ -79,6 +79,9 @@ INSTALLED_APPS = [
     # images app
     'images.apps.ImagesConfig',
 
+    # thumbnails
+    'easy_thumbnails',
+
 ]
 
 MIDDLEWARE = [
