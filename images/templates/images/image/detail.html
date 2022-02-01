@@ -48,6 +48,7 @@
  action: $(this).data('action')
  },
  function(data){
+console.log(data['status'])
  if (data['status'] == 'ok')
  {
  var previous_action = $('a.like').data('action');

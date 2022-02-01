@@ -51,7 +51,6 @@
  <a href="{% url 'portfolio:index_page' %}">My Portfolio</a>
  </div>
 </body>
-<span>my name is Dickson</span>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
 <script>
@@ -68,10 +67,8 @@
  }
  });
  $(document).ready(function(){
-    console.log('free')
     {% block domready %}
     {% endblock %}
-    console.log('dom')
  });
 </script>
 </html>
