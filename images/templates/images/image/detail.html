@@ -42,7 +42,7 @@
  $('a.like').click(function(e){
  e.preventDefault();
  console.log('i was clicked')
- $.post('{% url "www.dicksondurosakin.com/images/like/" %}',
+ $.post('{% url "images:like" %}',
  {
  id: $(this).data('id'),
  action: $(this).data('action')
