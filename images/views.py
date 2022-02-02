@@ -9,6 +9,10 @@ from django.http import HttpResponse, JsonResponse
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 from django.views.decorators.http import require_POST
 
+# is ajax has been deprecated so I will create my own
+def is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
 
 # Create your views here.
 @login_required
@@ -73,12 +77,12 @@ def image_list(request):
         # if not page was passed to the request return first page
         images = paginator.page(1)
     except EmptyPage:
-        if request.is_ajax():
+        if request.is_ajax(request):
             # if ajax and theres nothing on next page:
             return HttpResponse('')
         # if its normal request
         images = paginator.page(paginator.num_pages)
-    if request.is_ajax():
+    if request.is_ajax(request):
         return render(request,'images/image/list_ajax.html',
                                 {'section':'images',
                                 'images':images})
