@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from common.decorators import ajax_required
 from django.contrib import messages
 from .forms import ImageCreateForm
 from .models import Image
@@ -40,9 +41,8 @@ def image_detail(request,id,slug):
 
 @login_required
 @require_POST
+@ajax_required
 def image_like(request):
-    with open('gotit.txt','w') as me:
-        me.write('yes')
     image_id = request.POST.get('id')
     action = request.POST.get('action')
     if image_id and action:

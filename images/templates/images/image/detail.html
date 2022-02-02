@@ -41,14 +41,12 @@
 {% block domready %}
  $('a.like').click(function(e){
  e.preventDefault();
- console.log('i was clicked')
  $.post('{% url "images:like" %}',
  {
  id: $(this).data('id'),
  action: $(this).data('action')
  },
  function(data){
-console.log(data['status'])
  if (data['status'] == 'ok')
  {
  var previous_action = $('a.like').data('action');
