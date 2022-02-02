@@ -77,12 +77,12 @@ def image_list(request):
         # if not page was passed to the request return first page
         images = paginator.page(1)
     except EmptyPage:
-        if request.is_ajax(request):
+        if is_ajax(request):
             # if ajax and theres nothing on next page:
             return HttpResponse('')
         # if its normal request
         images = paginator.page(paginator.num_pages)
-    if request.is_ajax(request):
+    if is_ajax(request):
         return render(request,'images/image/list_ajax.html',
                                 {'section':'images',
                                 'images':images})
