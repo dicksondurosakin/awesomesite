@@ -17,7 +17,7 @@ from django.urls import reverse_lazy
 
 # overiding url
 ABSOLUTE_URL_OVERRIDES = {
- 'auth.user': lambda u: reverse_lazy('user_detail',
+ 'auth.user': lambda u: reverse_lazy('account:user_detail',
                                     args=[u.username])
 }
 # Build paths insid e the project like this: BASE_DIR / 'subdir'.
