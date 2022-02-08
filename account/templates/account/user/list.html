@@ -6,7 +6,7 @@
   {% for user in users %}
   <div class="user">
     <a href="{{ user.get_absolute_url }}">
-      <img src="https:www.durosakindickson.com/{{ user.profile.photo.url }}" />
+      <img src="https:www.durosakindickson.com{{ user.profile.photo.url }}" />
     </a>
     <h1>{{ request.get_host }}/{{ user.profile.photo.url }}</h1>
     <div class="info">
