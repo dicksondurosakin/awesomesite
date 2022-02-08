@@ -1,6 +1,9 @@
 from django.urls import path, include
 from django.urls.resolvers import URLPattern
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
+from awesomesite.settings import MEDIA_ROOT
 from . import views
 
 app_name = 'account'
@@ -33,6 +36,6 @@ urlpatterns = [
     # people
     path('users/', views.user_list, name='user_list'),
     path('users/<username>/', views.user_detail, name='user_detail'),
- 
-    
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=MEDIA_ROOT)
