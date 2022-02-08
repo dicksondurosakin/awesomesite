@@ -17,12 +17,10 @@
     <a href="{% url 'images:list' %}">Images</a>
    </li>
    <li {% if section == "people" %}class="selected"{% endif %}>
-    <a href="{% url "user_list" %}">People</a>
+    <a href="{% url 'account:user_list' %}">People</a>
    </li>
  </li>
  </ul>
-
-<li>{kksjkjkjkjkj}</li>
 
  {% endif %}
  <span class="user">
