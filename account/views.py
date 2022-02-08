@@ -65,7 +65,7 @@ def edit(request):
             profile_form = ProfileEditForm(instance=request.user.profile, data=request.POST,
                                         files=request.FILES)
         except:
-            profile_form = ProfileEditForm(data=request.POST,
+            profile_form = ProfileEditForm(instance=request.user,data=request.POST,
                                         files=request.FILES)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
