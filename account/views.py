@@ -68,7 +68,7 @@ def edit(request):
             new_profile_form = ProfileEditForm(data=request.POST,
                                         files=request.FILES)
             profile_form = new_profile_form.save(commit=False)
-            profile_form.user = request.user.id
+            profile_form.user = request.user
             
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
