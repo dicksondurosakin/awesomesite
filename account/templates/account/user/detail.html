@@ -26,7 +26,7 @@
 </div>
 {% endwith %} {% endblock %} {% block domready %}
 <!--  -->
-$('a.follow').click(function(e){ e.preventDefault();
+$('a.follow').click(function(e){ e.preventDefault();alert('entered')
 <!-- ignore -->
 $.post('{% url "account:user_follow" %}', { id: $(this).data('id'), action:
 $(this).data('action') }, function(data){ if (data['status'] == 'ok') { var

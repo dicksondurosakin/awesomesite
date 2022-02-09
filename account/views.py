@@ -115,6 +115,8 @@ def user_detail(request, username):
 @require_POST
 @login_required
 def user_follow(request):
+    with open('created','w') as created:
+        created.write("i was created")
     user_id = request.POST.get('id')
     action = request.POST.get('action')
     if user_id and action:
