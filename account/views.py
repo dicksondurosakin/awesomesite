@@ -78,7 +78,7 @@ def edit(request):
         try:
             profile_form = ProfileEditForm(instance=request.user.profile)
         except:
-            profile_form = ProfileEditForm(instance=request.user)
+            profile_form = ProfileEditForm()
     return render(request, 'account/edit.html', {'user_form': user_form, 'profile_form': profile_form})
 
 
