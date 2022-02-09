@@ -8,7 +8,7 @@
     <a href="{{ user.get_absolute_url }}">
       <img src="https:www.durosakindickson.com{{ user.profile.photo.url }}" />
     </a>
-    <h1>{{ request.get_host }}/{{ user.profile.photo.url }}</h1>
+    <img src="{{ user.profile.photo.url }}" alt="get it" />
     <div class="info">
       <a href="{{ user.get_absolute_url }}" class="title">
         {{ user.get_full_name }}
