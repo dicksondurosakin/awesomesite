@@ -6,6 +6,11 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile
 from django.contrib import messages
 
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+from common.decorators import ajax_required
+from .models import Contact
+
 from account.forms import UserRegistrationForm
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
@@ -30,14 +35,14 @@ def user_login(request):
         form = LoginForm()
     return render(request, 'account/login.html', {'form': form})
 
-
+# main dashboard
 @login_required
 def dashboard(request):
     return render(request,
                   'account/dashboard.html',
                   {'section': 'dashboard'})
 
-
+# register a new user
 def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
@@ -56,7 +61,7 @@ def register(request):
         user_form = UserRegistrationForm()
     return render(request, 'account/register.html', {'user_form': user_form})
 
-
+# edit a user profile
 @login_required
 def edit(request):
     if request.method == 'POST':
@@ -85,7 +90,7 @@ def edit(request):
             profile_form = ProfileEditForm()
     return render(request, 'account/edit.html', {'user_form': user_form, 'profile_form': profile_form})
 
-
+# list out all users
 @login_required
 def user_list(request):
     users = User.objects.filter(is_active=True)
@@ -94,6 +99,7 @@ def user_list(request):
             {'section': 'people',
             'users': users})
     
+# details of the users
 @login_required
 def user_detail(request, username):
  user = get_object_or_404(User,
@@ -103,3 +109,24 @@ def user_detail(request, username):
                 'account/user/detail.html',
                 {'section': 'people',
                 'user': user})
+ 
+# follow and unfollow users
+@ajax_required
+@require_POST
+@login_required
+def user_follow(request):
+    user_id = request.POST.get('id')
+    action = request.POST.get('action')
+    if user_id and action:
+        try:
+            user = User.objects.get(id=user_id)
+            if action == 'follow':
+                Contact.objects.get_or_create(user_from=request.user,
+                                        user_to=user)
+            else:
+                Contact.objects.filter(user_from=request.user,
+                user_to=user).delete()
+            return JsonResponse({'status':'ok'})
+        except User.DoesNotExist:
+            return JsonResponse({'status':'error'})
+    return JsonResponse({'status':'error'})
