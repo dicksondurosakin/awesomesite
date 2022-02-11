@@ -51,7 +51,8 @@ def dashboard(request):
                             .prefetch_related('target')[:10]
     return render(request,
                   'account/dashboard.html',
-                  {'section': 'dashboard'})
+                  {'section': 'dashboard',
+                   'actions':actions})
 
 # register a new user
 def register(request):
