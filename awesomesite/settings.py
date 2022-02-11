@@ -87,6 +87,9 @@ INSTALLED_APPS = [
 
     # thumbnails
     'easy_thumbnails',
+    
+    # actions app
+    'actions.apps.ActionsConfig'
 
 ]
 
