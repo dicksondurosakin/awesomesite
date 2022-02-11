@@ -3,7 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 
 # Create your models here.
-class Actions(models.Model):
+class Action(models.Model):
     user =  models.ForeignKey('auth.User', related_name='actions',
                             db_index=True,
                             on_delete=models.CASCADE)
