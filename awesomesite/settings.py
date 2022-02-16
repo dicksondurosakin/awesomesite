@@ -185,25 +185,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # if os.getcwd() == '/home/ddon375/awesomesite':
-try:
-    ################## DATABASE ON Python Anywhere MySQL #######################
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'OPTIONS': {
-                'sql_mode': 'traditional',
-            },
-            'NAME': 'ddon375$awesomesite',
-            'USER': 'ddon375',
-            'PASSWORD': secret.password,
-            'HOST': secret.host,
-        }
+################## DATABASE ON Python Anywhere MySQL #######################
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        },
+        'NAME': 'ddon375$awesomesite',
+        'USER': 'ddon375',
+        'PASSWORD': secret.password,
+        'HOST': secret.host,
     }
-except:
-    ############## DATABASE ON SQLITE 3 ###################
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+}
